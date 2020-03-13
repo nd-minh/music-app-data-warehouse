@@ -5,11 +5,15 @@ from sql_queries import copy_table_queries, insert_table_queries
 
 def load_staging_tables(cur, conn):
     """
-    This function execute the COPY statements to extract data from S3
+    Description: This function executes the COPY statements to extract data from S3
     and store in staging tables in Redshift
-    Input: 
+    
+    Arguments: 
     - conn: connection to the database
     - cur: cursor to the database
+    
+    Return:
+    - None
     """
     for query in copy_table_queries:
         cur.execute(query)
@@ -18,11 +22,15 @@ def load_staging_tables(cur, conn):
 
 def insert_tables(cur, conn):
     """
-    This function execute the INSERT statements to extract relevant data from 
+    Description: This function executes the INSERT statements to extract relevant data from 
     Redshift staging tables and store in dimension tables
-    Input: 
+    
+    Arguments: 
     - conn: connection to the database
     - cur: cursor to the database
+    
+    Return:
+    - None
     """
     for query in insert_table_queries:
         cur.execute(query)
@@ -31,8 +39,14 @@ def insert_tables(cur, conn):
 
 def main():
     """
-    This function configures connection to S3 and Redshift cluster,
-    call above-defined functions to execute the ETL pipeline.
+    Description: This function configures connection to S3 and Redshift cluster,
+    calling above-defined functions to execute the ETL pipeline.
+    
+    Arguments:
+    -None
+    
+    Return:
+    -None
     """
     config = configparser.ConfigParser()
     config.read('dwh.cfg')

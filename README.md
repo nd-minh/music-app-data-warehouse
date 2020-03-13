@@ -1,5 +1,7 @@
 # Data Warehouse for a Music Streaming App
 
+(Related projects: The design of a relational database and NoSQL database for this music app can be found in the projects [here](https://github.com/nd-minh/music-app-data-modeling))
+
 In this project, our aim is to design a data warehouse on AWS for a music streaming app. Our tasks are listed as follows:
 1. Extract two sources of data stored on Amazon S3: logs of user activities on the app and song metadata
 2. Stage the two data sources in Amazon Redshift
